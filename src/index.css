@@ -1,0 +1,157 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    /* Johnson & Johnson Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;  /* Much darker - was 224 71.4% 4.1% */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;  /* Much darker - was 224 71.4% 4.1% */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;  /* Much darker - was 224 71.4% 4.1% */
+
+    /* J&J Primary Red - #D71500 */
+    --primary: 8 100% 42%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 8 86% 55%;
+
+    /* J&J Secondary Colors */
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 0 0% 40%;  /* Darker for better contrast - was 220 8.9% 46.1% */
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    /* Medical/Healthcare Blues */
+    --medical-blue: 210 40% 35%;
+    --medical-blue-light: 210 40% 85%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and Input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 8 100% 42%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 8 100% 42%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 14.3% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 8 100% 42%;
+
+    /* Design System Extensions */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(8 100% 42%),
+      hsl(8 86% 55%)
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(0 0% 100%),
+      hsl(220 14.3% 98%)
+    );
+    --shadow-elegant: 0 10px 30px -10px hsl(8 100% 42% / 0.15);
+    --shadow-card: 0 4px 12px -4px hsl(220 13% 91% / 0.8);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 0 0% 95%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 0 0% 95%;
+
+    /* J&J Primary Red - slightly adjusted for dark mode */
+    --primary: 8 86% 55%;
+    --primary-foreground: 0 0% 9%;
+    --primary-glow: 8 100% 65%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 8 86% 55%;
+
+    --sidebar-background: 224 71.4% 4.1%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 8 86% 55%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 215 27.9% 16.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 215 27.9% 16.9%;
+    --sidebar-ring: 8 86% 55%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(8 86% 55%),
+      hsl(8 100% 65%)
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(224 71.4% 4.1%),
+      hsl(215 27.9% 12%)
+    );
+    --shadow-elegant: 0 10px 30px -10px hsl(8 86% 55% / 0.25);
+    --shadow-card: 0 4px 12px -4px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+  }
+}
+
+@layer components {
+  /* J&J Professional Typography */
+  .j-heading-1 {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700;   /* font-bold */
+  }
+  .j-heading-2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 600;    /* font-semibold */
+  }
+  .j-heading-3 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600;  /* font-semibold */
+    color: hsl(var(--foreground));
+  }
+  .j-body {
+    font-size: 1rem; /* text-base */
+    color: hsl(var(--muted-foreground));
+    line-height: 1.625; /* leading-relaxed */
+  }
+  .j-caption {
+    font-size: 0.875rem; /* text-sm */
+    color: hsl(var(--muted-foreground));
+  }
+}
